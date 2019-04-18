@@ -6,12 +6,12 @@ include "common/navbar.php";
 <div class="wrapper" id="wrapper-index">
     <h1><?php echo MAIN_TITLE; ?></h1>
     <h2><?php echo MAIN_SUBTITLE; ?></h2>
-    <form name="registerForm" id="registerForm" method="POST" action="" onsubmit="return validateForm()">
+    <div id="registerForm">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="lastname"><?php echo NAME; ?></label>
-                    <input type="text" class="form-control" placeholder="Dupont" name="lastname" required="required">
+                    <input type="text" class="form-control" placeholder="Dupont" id="lastname" name="lastname" required="required">
                     <div id="errorName" class="error" style="display: none"> <?php echo INVALID_NAME ?></div>
                 </div>
             </div>
@@ -19,7 +19,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="firstname"><?php echo FIRSTNAME; ?></label>
-                    <input type="text" class="form-control" placeholder="Yannis" name="firstname" required="required">
+                    <input type="text" class="form-control" placeholder="Yannis" id="firstname" name="firstname" required="required">
                     <div id="errorFirstname" class="error" style="display: none"><?php echo INVALID_FIRSTNAME ?></div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="birthday"><?php echo BIRTHDATE; ?></label>
-                    <input type="date" class="form-control" name="birthday" required="required">
+                    <input type="date" class="form-control" name="birthday" id="birthday" required="required">
                     <div id="errorBirthday" class="error" style="display:none"><?php echo INVALID_BIRTHDATE ?></div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="du@pont.fr" name="email" required="required">
+                    <input type="text" class="form-control" id="email" placeholder="du@pont.fr" name="email" required="required">
                     <div id="errorEmailExist" class="error" style="display:none"><?php echo INVALID_EMAIL ?></div>
                     <div id="errorEmail" class="error" style="display:none"><?php echo INVALID_EMAIL2 ?></div>
                 </div>
@@ -48,7 +48,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="phone"><?php echo PHONE; ?></label>
-                    <input type="text" class="form-control" placeholder="06 XX XX XX XX" name="phone"
+                    <input type="text" id="phone" class="form-control" placeholder="06 XX XX XX XX" name="phone"
                            required="required">
                     <div id="errorPhone" class="error" style="display:none"><?php echo INVALID_PHONE ?></div>
                 </div>
@@ -59,7 +59,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="pwd"><?php echo PASSWORD; ?></label>
-                    <input type="password" class="form-control" name="pwd" required="required">
+                    <input type="password" class="form-control" name="pwd" id="pwd" required="required">
                     <div id="errorPwd" class="error" style="display:none"><?php echo INVALID_PASSWORD ?></div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ include "common/navbar.php";
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="pwdConfirm"><?php echo CONFIRMATION; ?></label>
-                    <input type="password" class="form-control" name="pwdConfirm" required="required">
+                    <input type="password" class="form-control" name="pwdConfirm" id="pwdConfirm" required="required">
                     <div id="errorPwdConfirm" class="error"
                          style="display:none"><?php echo INVALID_CONFIRMATION; ?></div>
                 </div>
@@ -85,9 +85,9 @@ include "common/navbar.php";
         </div>
 
         <div class="form-group" style="text-align:center;">
-            <button type="submit" class="btn btn-secondary"><?php echo VALIDATE ?> </button>
+            <button type="submit" class="btn btn-secondary" onclick="validateForm()"><?php echo VALIDATE ?> </button>
         </div>
-    </form>
+    </div>
 </div>
 
 <?php

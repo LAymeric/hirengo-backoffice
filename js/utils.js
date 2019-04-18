@@ -4,32 +4,38 @@ function validateForm() {
     var regexPhone = /^(0|\+33)[1-9]([-.: ]?[0-9]{2}){4}$/
     var regexPostalCode = /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/
 
-    if (!validateName(document.forms["registerForm"]["lastname"].value, document.getElementById('errorName'), 2, 60)) {
+    const lastname = document.getElementById("lastname").value;
+    const firstname = document.getElementById("firstname").value;
+    const pwd = document.getElementById("pwd").value;
+    const pwdConfirm = document.getElementById("pwdConfirm").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const birthday = document.getElementById("birthday").value;
+
+    if (!validateName(lastname, document.getElementById('errorName'), 2, 60)) {
         error = true
     }
-    if (!validateName(document.forms["registerForm"]["firstname"].value, document.getElementById('errorFirstname'), 2, 60)) {
+    if (!validateName(firstname, document.getElementById('errorFirstname'), 2, 60)) {
         error = true
     }
-    if (!validateName(document.forms["registerForm"]["pwd"].value, document.getElementById('errorPwd'), 8, 40)) {
+    if (!validateName(pwd, document.getElementById('errorPwd'), 8, 40)) {
         error = true
     }
-    if (!validatePwdConfirm(document.forms["registerForm"]["pwd"].value, document.forms["registerForm"]["pwdConfirm"].value, document.getElementById('errorPwdConfirm'))) {
+    if (!validatePwdConfirm(pwd, pwdConfirm, document.getElementById('errorPwdConfirm'))) {
         error = true
     }
-    if (!validateRegex(document.forms["registerForm"]["email"].value, document.getElementById('errorEmail'), regexEmail)) {
+    if (!validateRegex(email, document.getElementById('errorEmail'), regexEmail)) {
         error = true
     }
-    if (!validateRegex(document.forms["registerForm"]["phone"].value, document.getElementById('errorPhone'), regexPhone)) {
+    if (!validateRegex(phone, document.getElementById('errorPhone'), regexPhone)) {
         error = true
     }
-    if (!validateBirthday(document.forms["registerForm"]["birthday"].value, document.getElementById('errorBirthday'))) {
+    if (!validateBirthday(birthday, document.getElementById('errorBirthday'))) {
         error = true
     }
     if (!error) {
-        saveUser();
+        saveUser(firstname, lastname, email, birthday, phone, pwd);
     }
-
-    return !error
 }
 
 

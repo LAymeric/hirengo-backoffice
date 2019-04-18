@@ -1,17 +1,24 @@
-function saveUser() {
-    const data = $('form').serialize()
+function saveUser(firstname, lastname, email, birthday, phone, pwd) {
+    const data = JSON.stringify({
+        lastname:lastname,
+        firstname:firstname,
+        pwd:pwd,
+        email:email,
+        phone:phone,
+        birthday:birthday,
+    })
     console.log(data)
-    alert("4")
     $.ajax({
         url: 'http://localhost:8080/api/users/create',
-        data: {
-            lastname: data.lastname,
-            firstname: data.firstname,
-            email: data.email,
-            //TODO
-        },
+        data: data,
         type: 'POST',
         dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
+            'Access-Control-Allow-Credentials':true
+        },
         success: function (code, status) {
             //todo aller sur la page du compte
             alert("success")
