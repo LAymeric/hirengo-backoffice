@@ -6,7 +6,7 @@
     <title>Hire'N Go Back Office</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./../assets/vendor/images/favicon/favicon.ico" type="image/ico">
+    <link rel="shortcut icon" href="./assets/vendor/images/favicon/favicon.ico" type="image/ico">
 
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -38,8 +38,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Functions js-->
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/functions.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/functions.js"></script>
   </head>
   <?php include "php-scripts/i18n.php";?>
   <body>

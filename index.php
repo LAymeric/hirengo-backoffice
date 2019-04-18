@@ -10,8 +10,8 @@ include "common/navbar.php";
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="name"><?php echo NAME; ?></label>
-                    <input type="text" class="form-control" placeholder="Dupont" name="name" required="required">
+                    <label for="lastname"><?php echo NAME; ?></label>
+                    <input type="text" class="form-control" placeholder="Dupont" name="lastname" required="required">
                     <div id="errorName" class="error" style="display: none"> <?php echo INVALID_NAME ?></div>
                 </div>
             </div>
