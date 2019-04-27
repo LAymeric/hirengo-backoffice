@@ -1,4 +1,4 @@
-function saveUser(firstname, lastname, email, birthday, phone, pwd) {
+function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
     const data = JSON.stringify({
         lastname:lastname,
         firstname:firstname,
@@ -6,7 +6,9 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd) {
         email:email,
         phone:phone,
         birthday:birthday,
+        type:type,
     })
+    console.log(type)
     $.ajax({
         url: 'http://localhost:8080/api/users/create',
         data: data,
@@ -19,12 +21,12 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd) {
             'Access-Control-Allow-Credentials':true
         },
         success: function (code, status) {
-               console.log("code"+JSON.stringify(code))
                 $.ajax({
                        url: './php-scripts/login.php',
                        data: {
                         id:code.id,
-                        firstname:code.firstname
+                        firstname:code.firstname,
+                        type:code.type
                        },
                        type: 'POST',
                        dataType: "json",

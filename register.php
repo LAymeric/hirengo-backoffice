@@ -48,6 +48,15 @@
                     <div id="errorPhone" class="error" style="display:none"><?php echo INVALID_PHONE ?></div>
                 </div>
             </div>
+             <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="type"><?php echo TYPE; ?></label>
+                    <select type="text" id="type" class="form-control" name="type" required="required">
+                           <option value="DRIVER"> <?php echo DRIVER; ?></option>
+                           <option value="ACCOMPANIST"> <?php echo ACCOMPANIST; ?></option>
+                   </select>
+                </div>
+            </div>
         </div>
 
         <div class="row">

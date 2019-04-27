@@ -69,4 +69,7 @@
   define('YOUR_SERVICES','Your services');
   define('COURSES_HISTORY','Courses history');
   define('ADD_SERVICE','Add a service');
+  define('TYPE','Type');
+  define('DRIVER','Driver');
+  define('ACCOMPANIST','Accompanist');
 ?>

@@ -69,4 +69,7 @@
   define('YOUR_SERVICES','Vos services');
   define('COURSES_HISTORY','Historique des courses');
   define('ADD_SERVICE','Ajouter un service');
+  define('TYPE','Type');
+  define('DRIVER','Chauffeur');
+  define('ACCOMPANIST','Accompagnant');
 ?>

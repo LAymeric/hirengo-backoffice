@@ -11,6 +11,7 @@ function validateForm() {
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const birthday = document.getElementById("birthday").value;
+    const type = document.getElementById("type").value;
 
     if (!validateName(lastname, document.getElementById('errorName'), 2, 60)) {
         error = true
@@ -34,7 +35,7 @@ function validateForm() {
         error = true
     }
     if (!error) {
-        saveUser(firstname, lastname, email, birthday, phone, pwd);
+        saveUser(firstname, lastname, email, birthday, phone, pwd, type);
     }
 }
 
