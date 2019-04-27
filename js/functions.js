@@ -24,9 +24,10 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
                 $.ajax({
                        url: './php-scripts/login.php',
                        data: {
-                        id:code.id,
+                        email:code.email,
                         firstname:code.firstname,
-                        type:code.type
+                        type:code.type,
+                        hasFilledData:code.hasFilledData
                        },
                        type: 'POST',
                        dataType: "json",
@@ -72,8 +73,10 @@ function login(email, pwd) {
                 $.ajax({
                        url: './php-scripts/login.php',
                        data: {
+                        email:code.email,
                         firstname:code.firstname,
-                        email:code.email
+                        type:code.type,
+                        hasFilledData:code.hasFilledData
                        },
                        type: 'POST',
                        dataType: "json",
