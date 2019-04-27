@@ -63,4 +63,6 @@
   define('POSTAL_CODE_DESTINATION','Code postal d\'arrivée');
   define('TOWN_DESTINATION','Ville de destination');
   define('HELLO','Bonjour');
+  define('LOGIN_FAIL_PWD','Mauvais mot de passe');
+  define('LOGIN_FAIL_EMAIL','Mauvais email');
 ?>
