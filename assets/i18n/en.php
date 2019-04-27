@@ -72,4 +72,11 @@
   define('TYPE','Type');
   define('DRIVER','Driver');
   define('ACCOMPANIST','Accompanist');
+  define('FILL_CAR','Please fullfill the informations related to your vehicule, so you can access to you dashboard and start you first course.');
+  define('NAME_CAR_ERROR','Incorrect car name');
+  define('BRAND','Brand');
+  define('BRAND_CAR_ERROR','Wrong brand name');
+  define('DESCRIPTION','Car's Description');
+  define('DESCRIPTION_CAR_ERROR','Wrong car description');
+  define('SAVE','Save');
 ?>

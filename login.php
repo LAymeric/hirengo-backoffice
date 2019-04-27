@@ -6,9 +6,7 @@
       <h1><?php echo MAIN_TITLE_LOGIN; ?></h1>
       <h2><?php echo MAIN_SUBTITLE_LOGIN; ?></h2>
     </div>
-
-    <div class="push"></div>
-
+    <br/>
     <div class="container center_div register-form" >
         <?php if (isset($_SESSION["failedLogin"])) {
             echo '<div class="push"></div>';
@@ -33,9 +31,7 @@
                 <input type="password" class="form-control" name="pwd" id="pwd" required="required">
                 <div id="errorPwdLogin" class="error" style="display: none"><?php echo LOGIN_FAIL_PWD ?></div>
             </div>
-
-
-            <div class="push"></div>
+               <br/>
             <div class="form-group" style="text-align:center;">
                 <button type="submit" class="btn btn-secondary" onclick="validateLoginForm()"><?php echo SIGN_IN;?></span></button>
             </div>
@@ -47,9 +43,7 @@
         </div>
 
     </div>
-    <div class="push"></div>
-
-
+    <br/>
 
 <?php
 
