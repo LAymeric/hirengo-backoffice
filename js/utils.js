@@ -57,6 +57,36 @@ function validateLoginForm() {
     }
 }
 
+function validateCarForm(userEmail) {
+    var error = false
+
+    const name = document.getElementById("name").value;
+    const brand = document.getElementById("brand").value;
+    const description = document.getElementById("description").value;
+    const image = document.getElementById("image").files[0];
+
+    if (!validateName(name, document.getElementById('errorName'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(brand, document.getElementById('errorBrand'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(description, document.getElementById('errorDescription'), 2, 400)) {
+        error = true
+    }
+
+    if (!error) {
+        var reader = new FileReader();
+        var selectedFile = image;
+        reader.readAsText(image);
+        reader.onload = function () {
+            var comma = this.result.indexOf(',');
+            var base64 = this.result.substr(comma + 1);
+            saveCar(name, brand, description, base64, userEmail)
+        }
+    }
+}
+
 function validateName(name, error, min, max) {
     if (name.length < min || name.length > max) {
         error.style.display = 'inline'

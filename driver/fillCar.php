@@ -23,16 +23,14 @@
             <div class="input-group image-preview">
                 <span class="input-group-btn margin-auto">
                     <div class="btn btn-default image-preview-input">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        <span class="image-preview-input-title"><?php echo BROWSE;?></span>
-                        <input  onchange="loadFile(event)" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>
+                        <input  onchange="loadFile(event)" type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" id="image"/>
                     </div>
                 </span>
                 <img class=" margin-auto" id="output"/>
             </div>
         </div>
         <div class="form-group" style="text-align:center;">
-            <button type="submit" class="btn btn-secondary" onclick="validateCarForm()"><?php echo SAVE;?></button>
+            <button type="submit" class="btn btn-secondary" onclick="validateCarForm('<?php echo $_SESSION["email"] ?>')"><?php echo SAVE;?></button>
         </div>
      </div>
 </div>

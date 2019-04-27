@@ -8,7 +8,6 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
         birthday:birthday,
         type:type,
     })
-    console.log(type)
     $.ajax({
         url: 'http://localhost:8080/api/users/create',
         data: data,
@@ -52,6 +51,50 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
     })
 }
 
+function saveCar(name, brand, description, base64, userMail) {
+    const data = JSON.stringify({
+        userEmail:userMail,
+        name:name,
+        brand:brand,
+        description:description,
+        base64:JSON.stringify(base64)
+    })
+    $.ajax({
+        url: 'http://localhost:8080/api/cars/create',
+        data: data,
+        type: 'POST',
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
+            'Access-Control-Allow-Credentials':true
+        },
+        success: function (code, status) {
+               console.log("code"+JSON.stringify(code))
+                $.ajax({
+                       url: './php-scripts/saveCar.php', //todo dave hasFullFilledData
+                       type: 'GET',
+                       dataType: "json",
+                       success: function (code, status) {
+                            window.location.href = "./index.php";
+                       },
+                        error: function (result, status, error) {
+                                   //todo afficher une popup d'erreur
+                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                         },
+                   })
+        },
+
+        error: function (result, status, error) {
+            //todo afficher une popup d'erreur
+            alert("error 1" +JSON.stringify(result))
+        },
+
+        complete: function (result, status) {
+        }
+    })
+}
 function login(email, pwd) {
     const data = JSON.stringify({
         password:pwd,
