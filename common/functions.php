@@ -5,22 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Connection to database
-function connectDB()
-{
-
-    $dsn = DBDRIVER . ":host=" . DBHOST . ";dbname=" . DBNAME;
-
-    try {
-        $connection = new PDO($dsn, DBUSER, DBPWD);
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (Exception $e) {
-        die("SQL error:" . $e->getMessage());
-    }
-
-    return $connection;
-}
-
 // Generate a token
 function createToken($length)
 {
@@ -43,15 +27,4 @@ function isConnected()
     }
 
     return false;
-}
-
-// Return an associative array containing the elements selectionned
-function sqlSelect($query)
-{
-    $connection = connectDB();
-    $sql = $connection->prepare($query);
-    $sql->execute();
-    $result = $sql->fetch(PDO::FETCH_ASSOC);
-
-    return $result;
 }

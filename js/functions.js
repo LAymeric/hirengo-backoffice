@@ -2,12 +2,11 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd) {
     const data = JSON.stringify({
         lastname:lastname,
         firstname:firstname,
-        pwd:pwd,
+        password:pwd,
         email:email,
         phone:phone,
         birthday:birthday,
     })
-    console.log(data)
     $.ajax({
         url: 'http://localhost:8080/api/users/create',
         data: data,
@@ -20,8 +19,24 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd) {
             'Access-Control-Allow-Credentials':true
         },
         success: function (code, status) {
-            //todo aller sur la page du compte
-            alert("success")
+               console.log("code"+JSON.stringify(code))
+                $.ajax({
+                       url: './php-scripts/login.php',
+                       data: {
+                        id:code.id,
+                        firstname:code.firstname
+                       },
+                       type: 'POST',
+                       dataType: "json",
+                       success: function (code, status) {
+                            //alert(JSON.stringify(code))
+                            location.reload();
+                       },
+                        error: function (result, status, error) {
+                                   //todo afficher une popup d'erreur
+                                alert("error " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                         },
+                   })
         },
 
         error: function (result, status, error) {
@@ -30,7 +45,6 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd) {
         },
 
         complete: function (result, status) {
-            alert("complete")
         }
     })
 }

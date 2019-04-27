@@ -62,4 +62,5 @@
   define('ADDRESS_DESTINATION','Destination address');
   define('POSTAL_CODE_DESTINATION','Destination postal code');
   define('TOWN_DESTINATION','Destination town');
+  define('HELLO','Hello');
 ?>
