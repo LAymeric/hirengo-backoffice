@@ -117,8 +117,12 @@ h4 {
     text-align:center;
     margin-top:70px;
 }
+.tile:hover{
+   background-color:#4c4cff;
+}
 .tile{
-    background-color:#000fff;
+    background-color:#7f7fff;
+    transition: background-color 1s;
     border-radius:5px;
     margin:auto;
     height:200px;
@@ -127,4 +131,10 @@ h4 {
     margin-left:20px;
     color:#ffffff;
     padding:10px;
+    text-align:center;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    cursor:pointer;
 }

@@ -7,12 +7,12 @@
      </h2>
      <div class="dashboard-container">
         <div class="row">
-            <div class="tile col">TILE 1</div>
-            <div class="tile col">TILE 2</div>
+            <div class="tile col"><?php echo AVAILABLE_COURSES; ?></div>
+            <div class="tile col"><?php echo COURSES_HISTORY; ?></div>
         </div>
         <div class="row">
-            <div class="tile col">TILE 3</div>
-            <div class="tile col">TILE 4</div>
+            <div class="tile col"><?php echo YOUR_SERVICES; ?></div>
+            <div class="tile col"><?php echo ADD_SERVICE; ?></div>
         </div>
      <div>
 </div>
