@@ -65,4 +65,8 @@
   define('HELLO','Bonjour');
   define('LOGIN_FAIL_PWD','Mauvais mot de passe');
   define('LOGIN_FAIL_EMAIL','Mauvais email');
+  define('AVAILABLE_COURSES','Courses disponibles');
+  define('YOUR_SERVICES','Vos services');
+  define('COURSES_HISTORY','Historique des courses');
+  define('ADD_SERVICE','Ajouter un service');
 ?>
