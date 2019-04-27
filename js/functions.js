@@ -72,8 +72,8 @@ function login(email, pwd) {
                 $.ajax({
                        url: './php-scripts/login.php',
                        data: {
-                        id:code.id,
-                        firstname:code.firstname
+                        firstname:code.firstname,
+                        email:code.email
                        },
                        type: 'POST',
                        dataType: "json",
@@ -96,6 +96,32 @@ function login(email, pwd) {
         complete: function (result, status) {
         }
     })
+}
+
+function getUserServices(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/services/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+                   console.log("code"+JSON.stringify(code))
+
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
 }
 
 function getUserData() {
