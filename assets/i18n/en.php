@@ -79,4 +79,6 @@
   define('DESCRIPTION','Car's Description');
   define('DESCRIPTION_CAR_ERROR','Wrong car description');
   define('SAVE','Save');
+  define('IMAGE_CAR','Picture of the car');
+  define('BROWSE','Browse');
 ?>
