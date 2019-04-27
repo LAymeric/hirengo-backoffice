@@ -38,6 +38,23 @@ function validateForm() {
     }
 }
 
+function validateLoginForm() {
+    var error = false
+    var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    const pwd = document.getElementById("pwd").value;
+    const email = document.getElementById("email").value;
+
+    if (!validateName(pwd, document.getElementById('errorPwdLogin'), 8, 40)) {
+        error = true
+    }
+    if (!validateRegex(email, document.getElementById('errorEmailLogin'), regexEmail)) {
+        error = true
+    }
+    if (!error) {
+        login(email,pwd);
+    }
+}
 
 function validateName(name, error, min, max) {
     if (name.length < min || name.length > max) {
