@@ -5,5 +5,4 @@
         }
          ?>
      </h2>
-    <a href="./php-scripts/logout.php" class="button" ><?php echo LOGOUT; ?></a>
 </div>

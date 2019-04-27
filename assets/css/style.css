@@ -108,3 +108,8 @@ h4 {
     width: 200px;
     margin: auto;
 }
+.footer-button{
+    position:absolute;
+    bottom : 50px;
+    margin:auto;
+}
