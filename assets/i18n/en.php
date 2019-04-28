@@ -82,4 +82,5 @@
   define('IMAGE_CAR','Picture of the car');
   define('BROWSE','Browse');
   define('FILL_SERVICE','Please fullfill the type of services you propose, so you can access your dashboard');
+  define('SERVICE_ERROR','Check at least one service');
 ?>

@@ -87,6 +87,28 @@ function validateCarForm(userEmail) {
     }
 }
 
+function validateServiceForm(userEmail) {
+    let error = false
+    const array = []
+    const checkboxes = document.querySelectorAll("input:checked")
+    for (let i = 0; i < checkboxes.length; i++) {
+      array.push(checkboxes[i].value)
+    }
+    const errorElement = document.getElementById('errorCheckboxes')
+    if(array.length === 0){
+        errorElement.style.display = 'inline'
+        errorElement.style.color = '#FF0000'
+        error = true
+    }else{
+        errorElement.style.display = 'none'
+        error = false
+    }
+    if (!error) {
+       console.log(JSON.stringify(array))
+       saveServices(userEmail, array)
+    }
+}
+
 function validateName(name, error, min, max) {
     if (name.length < min || name.length > max) {
         error.style.display = 'inline'

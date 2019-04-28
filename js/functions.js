@@ -159,7 +159,7 @@ function getAllServicesForAccompanist() {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
-                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' name='"+current.productLibelle+"'> <label for='"+current.productLibelle+"'>"+current.productLibelle+"</label></div>"
+                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.productLibelle+"'> <label for='"+current.productLibelle+"'>"+current.productLibelle+"</label></div>"
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
