@@ -81,4 +81,5 @@
   define('SAVE','Save');
   define('IMAGE_CAR','Picture of the car');
   define('BROWSE','Browse');
+  define('FILL_SERVICE','Please fullfill the type of services you propose, so you can access your dashboard');
 ?>

@@ -144,6 +144,35 @@ function login(email, pwd) {
     })
 }
 
+function getAllServicesForAccompanist() {
+    $.ajax({
+            url: 'http://localhost:8080/api/services/accompanist',
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                for(let i = 0; i < code.length; i++){
+                    const current = code [i];
+                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' name='"+current.productLibelle+"'> <label for='"+current.productLibelle+"'>"+current.productLibelle+"</label></div>"
+                }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
 function getUserServices(email) {
     $.ajax({
             url: 'http://localhost:8080/api/services/'+email,
