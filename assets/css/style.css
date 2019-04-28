@@ -138,3 +138,12 @@ h4 {
     flex-direction:column;
     cursor:pointer;
 }
+#output{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    background-color:grey;
+}
+.margin-auto{
+    margin: auto;
+}

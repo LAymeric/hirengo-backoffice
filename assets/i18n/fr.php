@@ -69,4 +69,18 @@
   define('YOUR_SERVICES','Vos services');
   define('COURSES_HISTORY','Historique des courses');
   define('ADD_SERVICE','Ajouter un service');
+  define('TYPE','Type');
+  define('DRIVER','Chauffeur');
+  define('ACCOMPANIST','Accompagnant');
+  define('FILL_CAR','Veuillez renseigner les informations relatives à votre véhicule pour accéder à votre dashboard et comencer votre première course.');
+  define('NAME_CAR_ERROR','Nom de voiture incorrect');
+  define('BRAND','Marque');
+  define('BRAND_CAR_ERROR','Marque incorrecte');
+  define('DESCRIPTION','Description de la voiture');
+  define('DESCRIPTION_CAR_ERROR','Erreur dans description de la voiture');
+  define('SAVE','Sauvegarder');
+  define('IMAGE_CAR','Image de la voiture');
+  define('BROWSE','Rechercher');
+  define('FILL_SERVICE','Veuillez renseigner le type de service(s) que vous proposez pour pouvoir acceder à votre dashboard');
+  define('SERVICE_ERROR','Sélectionnez au moins un service');
 ?>

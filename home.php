@@ -5,14 +5,19 @@
         }
          ?>
      </h2>
-     <div class="dashboard-container">
-        <div class="row">
-            <div class="tile col"><?php echo AVAILABLE_COURSES; ?></div>
-            <div class="tile col"><?php echo COURSES_HISTORY; ?></div>
-        </div>
-        <div class="row">
-            <div class="tile col"><?php echo YOUR_SERVICES; ?></div>
-            <div class="tile col"><?php echo ADD_SERVICE; ?></div>
-        </div>
-     <div>
+     <?php
+        if(isset($_SESSION["type"]) && $_SESSION["type"] == "DRIVER"){
+            if(isset($_SESSION["hasFilledData"]) && $_SESSION["hasFilledData"] == "true"){
+                include "driver/dashboardDriver.php";
+            }else{
+                include "driver/fillCar.php";
+            }
+         }else if(isset($_SESSION["type"]) && $_SESSION["type"] == "ACCOMPANIST"){
+            if(isset($_SESSION["hasFilledData"]) && $_SESSION["hasFilledData"] == "true"){
+                include "accompanist/dashboardAccompanist.php";
+             }else{
+                include "accompanist/fillType.php";
+             }
+         }
+              ?>
 </div>

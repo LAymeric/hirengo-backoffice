@@ -11,6 +11,7 @@ function validateForm() {
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const birthday = document.getElementById("birthday").value;
+    const type = document.getElementById("type").value;
 
     if (!validateName(lastname, document.getElementById('errorName'), 2, 60)) {
         error = true
@@ -34,7 +35,7 @@ function validateForm() {
         error = true
     }
     if (!error) {
-        saveUser(firstname, lastname, email, birthday, phone, pwd);
+        saveUser(firstname, lastname, email, birthday, phone, pwd, type);
     }
 }
 
@@ -53,6 +54,58 @@ function validateLoginForm() {
     }
     if (!error) {
         login(email,pwd);
+    }
+}
+
+function validateCarForm(userEmail) {
+    var error = false
+
+    const name = document.getElementById("name").value;
+    const brand = document.getElementById("brand").value;
+    const description = document.getElementById("description").value;
+    const image = document.getElementById("image").files[0];
+
+    if (!validateName(name, document.getElementById('errorName'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(brand, document.getElementById('errorBrand'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(description, document.getElementById('errorDescription'), 2, 400)) {
+        error = true
+    }
+
+    if (!error) {
+        var reader = new FileReader();
+        var selectedFile = image;
+        reader.readAsText(image);
+        reader.onload = function () {
+            var comma = this.result.indexOf(',');
+            var base64 = this.result.substr(comma + 1);
+            saveCar(name, brand, description, base64, userEmail)
+        }
+    }
+}
+
+function validateServiceForm(userEmail) {
+    let error = false
+    const array = []
+    const checkboxes = document.querySelectorAll("input:checked")
+    for (let i = 0; i < checkboxes.length; i++) {
+      array.push(checkboxes[i].value)
+    }
+    const errorElement = document.getElementById('errorCheckboxes')
+    if(array.length === 0){
+        errorElement.style.display = 'inline'
+        errorElement.style.color = '#FF0000'
+        error = true
+    }else{
+        errorElement.style.display = 'none'
+        error = false
+    }
+    if (!error) {
+       console.log(JSON.stringify(array))
+       saveServices(userEmail, array)
     }
 }
 
@@ -109,6 +162,8 @@ function validatePwdConfirm(pwd, pwdConfirm, error) {
     }
 }
 
-
-
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
 
