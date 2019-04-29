@@ -57,7 +57,7 @@ function saveCar(name, brand, description, base64, userMail) {
         name:name,
         brand:brand,
         description:description,
-        base64:JSON.stringify(base64)
+        base64:base64
     })
     $.ajax({
         url: 'http://localhost:8080/api/cars/create',
@@ -201,6 +201,36 @@ function getAllServicesForAccompanist() {
                     visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
                 }
                 document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+function getCarInfoForDriver(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/cars/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               // var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(code.image)));
+                //var base64String = arrayBufferToBase64(code.image);
+                console.log(code.base64)
+                displayImageFromByteArray(code.base64)
+                document.getElementById('name').innerHTML = code.name;
+                document.getElementById('brand').innerHTML = code.brand;
+                document.getElementById('description').innerHTML = code.description;
             },
 
             error: function (result, status, error) {

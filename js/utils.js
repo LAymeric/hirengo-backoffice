@@ -77,13 +77,14 @@ function validateCarForm(userEmail) {
 
     if (!error) {
         var reader = new FileReader();
-        var selectedFile = image;
-        reader.readAsText(image);
-        reader.onload = function () {
-            var comma = this.result.indexOf(',');
-            var base64 = this.result.substr(comma + 1);
+        reader.readAsBinaryString(image);
+
+        reader.onload = function() {
+            var base64 = btoa(reader.result);
+            alert(base64)
             saveCar(name, brand, description, base64, userEmail)
-        }
+        };
+
     }
 }
 
@@ -162,8 +163,30 @@ function validatePwdConfirm(pwd, pwdConfirm, error) {
     }
 }
 
+function uint8ToString(buf) {
+    var i, length, out = '';
+    for (i = 0, length = buf.length; i < length; i += 1) {
+        out += String.fromCharCode(buf[i]);
+    }
+    return out;
+}
+
+function arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
+
+var displayImageFromByteArray = function(base64) {
+    document.getElementById("output").src = "data:image/png;base64," + base64;
+};
+
 var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
-  };
+};
 
