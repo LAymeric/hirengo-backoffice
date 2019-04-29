@@ -91,4 +91,5 @@
   define('QUANTITY','Quantity');
   define('PRICE','Price');
   define('NEW_SERVICE','Add a service');
+  define('PRICE_SERVICE_ERROR','Error with the service price');
 ?>

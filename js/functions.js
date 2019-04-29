@@ -149,11 +149,11 @@ function saveServices(userEmail, array) {
         },
         success: function (code, status) {
                 $.ajax({
-                       url: './php-scripts/saveService.php',
+                       url: './../php-scripts/saveService.php',
                        type: 'GET',
                        dataType: "json",
                        success: function (code, status) {
-                            window.location.href = "./index.php";
+                            window.location.href = "./../index.php";
                        },
                         error: function (result, status, error) {
                                    //todo afficher une popup d'erreur
@@ -224,6 +224,36 @@ function login(email, pwd) {
 function getAllServicesForAccompanist() {
     $.ajax({
             url: 'http://localhost:8080/api/services/accompanist',
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                for(let i = 0; i < code.length; i++){
+                    const current = code [i];
+                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
+                }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
+function getAllServicesAvailable(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/services/available/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
