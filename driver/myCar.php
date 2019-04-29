@@ -4,6 +4,7 @@ include "./../common/navbar.php";
 ?>
 <script> $(document).ready(getCarInfoForDriver('<?php echo $_SESSION["email"];?>')); </script>
 <div class="medium-sized">
+    <h1><?php echo MY_CAR;?> </h1>
     <div class="row">
         <img class=" margin-auto" id="output"/>
     </div>
