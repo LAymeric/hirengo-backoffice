@@ -154,11 +154,17 @@ h4 {
     flex-direction:column;
     cursor:pointer;
 }
-#output, #outputEdit{
+.width350{
+    width:350px;
+}
+#output, #outputEdit, .output{
     width:150px;
     height:150px;
     border-radius: 50%;
     background-color:grey;
+}
+.text-align-left{
+    text-align:left;
 }
 .margin-auto{
     margin: auto;

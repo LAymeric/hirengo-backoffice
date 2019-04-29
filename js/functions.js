@@ -86,6 +86,7 @@ function saveCar(name, brand, description, base64, userMail) {
         },
     })
 }
+
 function editCar(name, brand, description, base64, userMail) {
     const data = JSON.stringify({
         userEmail:userMail,
@@ -129,6 +130,7 @@ function editCar(name, brand, description, base64, userMail) {
         }
     })
 }
+
 function saveServices(userEmail, array) {
     const data = JSON.stringify({
         userEmail:userEmail,
@@ -169,6 +171,7 @@ function saveServices(userEmail, array) {
         }
     })
 }
+
 function login(email, pwd) {
     const data = JSON.stringify({
         password:pwd,
@@ -235,6 +238,57 @@ function getAllServicesForAccompanist() {
                     const current = code [i];
                     visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
                 }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
+function getAllServicesForUser(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/services/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult ="<div class=\"container\"><div class=\"row\">"
+               if(code.length > 0){
+                    for(let i = 0; i < code.length; i++){
+                       const current = code [i];
+                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                            +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                               +"<div class=\"card-body\">"
+                                   +"<img src=\"\" class=\"output\" id=\"output_"+current.id+"\"/>"
+                                   + "<div class=\"col text-align-left\">"
+                                   + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.name + "</h5><br>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + "</p><br>"
+                                   + "<p style=\"text-align: center;\">" + current.quantity + "</p><br>"
+                                    +"</div>"
+                               +"</div>"
+                           +"</div>"
+                       +"</div>"
+
+                       if(current.picture){
+                           displayImageFromByteArray(current.picture, document.getElementById("output_"+current.id))
+                       }
+                   }
+               }else{
+                    visualResult = "<h2>No result</2>"
+               }
+
+                visualResult += "</div></div>"
                 document.getElementById('content').innerHTML = visualResult;
             },
 

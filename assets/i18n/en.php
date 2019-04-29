@@ -88,4 +88,7 @@
   define('SOLDE_ACCOUNT','Solde of account');
   define('EDIT','Edit');
   define('EDIT_CAR_TITLE','Edit your car information');
+  define('QUANTITY','Quantity');
+  define('PRICE','Price');
+  define('NEW_SERVICE','Add a service');
 ?>
