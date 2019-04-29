@@ -86,4 +86,6 @@
   define('MY_CAR','Ma voiture');
   define('IN_PROGRESS_COURSE','Course en cours');
   define('SOLDE_ACCOUNT','Solde du compte');
+  define('EDIT','Modifier');
+  define('EDIT_CAR_TITLE','Modifier les informations de votre voiture');
 ?>

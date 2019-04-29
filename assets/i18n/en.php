@@ -86,4 +86,6 @@
   define('MY_CAR','My car');
   define('IN_PROGRESS_COURSE','Course is progress');
   define('SOLDE_ACCOUNT','Solde of account');
+  define('EDIT','Edit');
+  define('EDIT_CAR_TITLE','Edit your car information');
 ?>

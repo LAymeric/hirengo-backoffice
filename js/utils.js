@@ -88,6 +88,39 @@ function validateCarForm(userEmail) {
     }
 }
 
+function validateCarEditForm(userEmail) {
+    var error = false
+
+    const name = document.getElementById("nameEdit").value;
+    const brand = document.getElementById("brandEdit").value;
+    const description = document.getElementById("descriptionEdit").value;
+    const image = document.getElementById("imageEdit").files[0];
+
+    if (!validateName(name, document.getElementById('errorName'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(brand, document.getElementById('errorBrand'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(description, document.getElementById('errorDescription'), 2, 400)) {
+        error = true
+    }
+
+    if (!error) {
+        if(image != null){
+            var reader = new FileReader();
+            reader.readAsBinaryString(image);
+
+            reader.onload = function() {
+                var base64 = btoa(reader.result);
+                editCar(name, brand, description, base64, userEmail)
+            };
+        }else{
+            editCar(name, brand, description, null, userEmail)
+        }
+    }
+}
+
 function validateServiceForm(userEmail) {
     let error = false
     const array = []
@@ -181,12 +214,17 @@ function arrayBufferToBase64( buffer ) {
     return window.btoa( binary );
 }
 
-var displayImageFromByteArray = function(base64) {
-    document.getElementById("output").src = "data:image/png;base64," + base64;
+var displayImageFromByteArray = function(base64, element) {
+    element.src = "data:image/png;base64," + base64;
 };
 
 var loadFile = function(event) {
     var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+};
+
+var loadFileEdit = function(event) {
+    var output = document.getElementById('outputEdit');
     output.src = URL.createObjectURL(event.target.files[0]);
 };
 

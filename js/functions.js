@@ -84,6 +84,41 @@ function saveCar(name, brand, description, base64, userMail) {
                          },
                    })
         },
+    })
+}
+function editCar(name, brand, description, base64, userMail) {
+    const data = JSON.stringify({
+        userEmail:userMail,
+        name:name,
+        brand:brand,
+        description:description,
+        base64:base64
+    })
+    $.ajax({
+        url: 'http://localhost:8080/api/cars/edit',
+        data: data,
+        type: 'POST',
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
+            'Access-Control-Allow-Credentials':true
+        },
+        success: function (code, status) {
+                $.ajax({
+                       url: './../php-scripts/saveCar.php',
+                       type: 'GET',
+                       dataType: "json",
+                       success: function (code, status) {
+                            window.location.href = "./myCar.php";
+                       },
+                        error: function (result, status, error) {
+                                   //todo afficher une popup d'erreur
+                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                         },
+                   })
+        },
 
         error: function (result, status, error) {
             //todo afficher une popup d'erreur
@@ -224,13 +259,14 @@ function getCarInfoForDriver(email) {
                 'Access-Control-Allow-Credentials':true
             },
             success: function (code, status) {
-               // var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(code.image)));
-                //var base64String = arrayBufferToBase64(code.image);
-                console.log(code.base64)
-                displayImageFromByteArray(code.base64)
+                displayImageFromByteArray(code.base64, document.getElementById("outputEdit"))
+                displayImageFromByteArray(code.base64, document.getElementById("output"))
                 document.getElementById('name').innerHTML = code.name;
+                document.getElementById('nameEdit').value = code.name;
                 document.getElementById('brand').innerHTML = code.brand;
+                document.getElementById('brandEdit').value = code.brand;
                 document.getElementById('description').innerHTML = code.description;
+                document.getElementById('descriptionEdit').value = code.description;
             },
 
             error: function (result, status, error) {

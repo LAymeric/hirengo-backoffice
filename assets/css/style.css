@@ -123,6 +123,19 @@ h4 {
 .big-icon {
     font-size: 36px;
 }
+.medium-sized{
+    width:30%;
+    padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    text-align:center;
+    margin-top:70px;
+}
+.modalEditCar{
+    padding : 20px;
+    text-align:center;
+}
 .tile{
     background-color:#7f7fff;
     transition: background-color 1s;
@@ -141,7 +154,7 @@ h4 {
     flex-direction:column;
     cursor:pointer;
 }
-#output{
+#output, #outputEdit{
     width:150px;
     height:150px;
     border-radius: 50%;
