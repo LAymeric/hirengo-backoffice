@@ -120,6 +120,9 @@ h4 {
 .tile:hover{
    background-color:#4c4cff;
 }
+.big-icon {
+    font-size: 36px;
+}
 .tile{
     background-color:#7f7fff;
     transition: background-color 1s;

@@ -83,4 +83,7 @@
   define('BROWSE','Rechercher');
   define('FILL_SERVICE','Veuillez renseigner le type de service(s) que vous proposez pour pouvoir acceder à votre dashboard');
   define('SERVICE_ERROR','Sélectionnez au moins un service');
+  define('MY_CAR','Ma voiture');
+  define('IN_PROGRESS_COURSE','Course en cours');
+  define('SOLDE_ACCOUNT','Solde du compte');
 ?>

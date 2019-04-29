@@ -83,4 +83,7 @@
   define('BROWSE','Browse');
   define('FILL_SERVICE','Please fullfill the type of services you propose, so you can access your dashboard');
   define('SERVICE_ERROR','Check at least one service');
+  define('MY_CAR','My car');
+  define('IN_PROGRESS_COURSE','Course is progress');
+  define('SOLDE_ACCOUNT','Solde of account');
 ?>
