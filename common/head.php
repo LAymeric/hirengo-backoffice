@@ -3,10 +3,14 @@
 
   <head>
 
+    <?php
+          $address = substr($_SERVER['PHP_SELF'], 0,strlen($_SERVER['PHP_SELF']) - strlen(strrchr($_SERVER['PHP_SELF'], '/')));
+          $path = ("/hirengo-backoffice/driver" == $address || "/hirengo-backoffice/accompanist" == $address) ? "../" : "";
+      ?>
     <title>Hire'N Go Back Office</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/vendor/images/favicon/favicon.ico" type="image/ico">
+    <link rel="shortcut icon" href="<?php echo $path;?>assets/vendor/images/favicon/favicon.ico" type="image/ico">
 
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -19,13 +23,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $path;?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome 5.0.8 -->
-    <link href="assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="<?php echo $path;?>assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo $path;?>assets/css/style.css" rel="stylesheet">
 
     <!--Modal -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -38,8 +42,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Functions js-->
-    <script src="./js/utils.js"></script>
-    <script src="./js/functions.js"></script>
+    <script src="<?php echo $path;?>js/utils.js"></script>
+    <script src="<?php echo $path;?>js/functions.js"></script>
   </head>
-  <?php include "php-scripts/i18n.php";?>
+  <?php include $path."php-scripts/i18n.php";?>
   <body>
