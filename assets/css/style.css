@@ -120,6 +120,22 @@ h4 {
 .tile:hover{
    background-color:#4c4cff;
 }
+.big-icon {
+    font-size: 36px;
+}
+.medium-sized{
+    width:30%;
+    padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    text-align:center;
+    margin-top:70px;
+}
+.modalEditCar{
+    padding : 20px;
+    text-align:center;
+}
 .tile{
     background-color:#7f7fff;
     transition: background-color 1s;
@@ -138,12 +154,21 @@ h4 {
     flex-direction:column;
     cursor:pointer;
 }
-#output{
+.width350{
+    width:350px;
+}
+#output, #outputEdit, .output{
     width:150px;
     height:150px;
     border-radius: 50%;
     background-color:grey;
 }
+.text-align-left{
+    text-align:left;
+}
 .margin-auto{
     margin: auto;
+}
+.margin-left{
+    margin-left:10px;
 }

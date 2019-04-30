@@ -77,12 +77,46 @@ function validateCarForm(userEmail) {
 
     if (!error) {
         var reader = new FileReader();
-        var selectedFile = image;
-        reader.readAsText(image);
-        reader.onload = function () {
-            var comma = this.result.indexOf(',');
-            var base64 = this.result.substr(comma + 1);
+        reader.readAsBinaryString(image);
+
+        reader.onload = function() {
+            var base64 = btoa(reader.result);
+            alert(base64)
             saveCar(name, brand, description, base64, userEmail)
+        };
+
+    }
+}
+
+function validateCarEditForm(userEmail) {
+    var error = false
+
+    const name = document.getElementById("nameEdit").value;
+    const brand = document.getElementById("brandEdit").value;
+    const description = document.getElementById("descriptionEdit").value;
+    const image = document.getElementById("imageEdit").files[0];
+
+    if (!validateName(name, document.getElementById('errorName'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(brand, document.getElementById('errorBrand'), 2, 40)) {
+        error = true
+    }
+    if (!validateName(description, document.getElementById('errorDescription'), 2, 400)) {
+        error = true
+    }
+
+    if (!error) {
+        if(image != null){
+            var reader = new FileReader();
+            reader.readAsBinaryString(image);
+
+            reader.onload = function() {
+                var base64 = btoa(reader.result);
+                editCar(name, brand, description, base64, userEmail)
+            };
+        }else{
+            editCar(name, brand, description, null, userEmail)
         }
     }
 }
@@ -162,8 +196,35 @@ function validatePwdConfirm(pwd, pwdConfirm, error) {
     }
 }
 
+function uint8ToString(buf) {
+    var i, length, out = '';
+    for (i = 0, length = buf.length; i < length; i += 1) {
+        out += String.fromCharCode(buf[i]);
+    }
+    return out;
+}
+
+function arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
+
+var displayImageFromByteArray = function(base64, element) {
+    element.src = "data:image/png;base64," + base64;
+};
+
 var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
-  };
+};
+
+var loadFileEdit = function(event) {
+    var output = document.getElementById('outputEdit');
+    output.src = URL.createObjectURL(event.target.files[0]);
+};
 

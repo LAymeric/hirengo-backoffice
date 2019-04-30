@@ -83,4 +83,13 @@
   define('BROWSE','Rechercher');
   define('FILL_SERVICE','Veuillez renseigner le type de service(s) que vous proposez pour pouvoir acceder à votre dashboard');
   define('SERVICE_ERROR','Sélectionnez au moins un service');
+  define('MY_CAR','Ma voiture');
+  define('IN_PROGRESS_COURSE','Course en cours');
+  define('SOLDE_ACCOUNT','Solde du compte');
+  define('EDIT','Modifier');
+  define('EDIT_CAR_TITLE','Modifier les informations de votre voiture');
+  define('QUANTITY','Quantité');
+  define('PRICE','Prix');
+  define('NEW_SERVICE','Ajouter un service');
+  define('PRICE_SERVICE_ERROR','Erreur dans le prix du service');
 ?>
