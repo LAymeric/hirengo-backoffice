@@ -5,7 +5,7 @@ include "./../common/navbar.php";
 <script> $(document).ready(getAllServicesAvailable('<?php echo $_SESSION["email"];?>')); </script>
 <div class="container">
      <div>
-        <?php echo NEW_SERVICE; ?>
+        <h1><?php echo NEW_SERVICE; ?></h1>
      </div>
      <div class="container center_div register-form">
          <div id="content"></div>
