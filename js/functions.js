@@ -312,6 +312,37 @@ function chooseCourse(courseId, email){
             })
 }
 
+function endCourse(courseId, email){
+    const data = JSON.stringify({
+            commandId:courseId,
+            email:email
+        })
+    $.ajax({
+            url: 'http://localhost:8080/api/command/end',
+            data: data,
+            type: 'POST',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                document.location.href="./courseHistory.php"
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
 function getAllAvailableCourses(email) {
     $.ajax({
             url: 'http://localhost:8080/api/command/available',
@@ -358,6 +389,51 @@ function getAllAvailableCourses(email) {
         })
 }
 
+function getAllHistoryCourses(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/command/history/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                for(let i = 0; i < code.length; i++){
+                    const current = code [i];
+                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                            +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                               +"<div class=\"card-body\">"
+                                   + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
+                                   + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.userName + "</h5>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.start + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.end + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.startTime + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.duration + " minutes</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + " € </p><br>"
+
+                                    +"</div>"
+                               +"</div>"
+                           +"</div>"
+                       +"</div>"
+                }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
 function getCurrentCourses(email) {
     $.ajax({
             url: 'http://localhost:8080/api/command/current/'+email,
@@ -382,7 +458,11 @@ function getCurrentCourses(email) {
                                    + "<p class=\"card-text\" style=\"text-align: center\">" + current.end + "</p>"
                                    + "<p class=\"card-text\" style=\"text-align: center\">" + current.startTime + "</p>"
                                    + "<p class=\"card-text\" style=\"text-align: center\">" + current.duration + " minutes</p>"
-                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p><br>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + " € </p><br>"
+                                   + "<div class=\"form-group\" style=\"text-align:center;\">"
+                                      + "<button type=\"submit\" class=\"btn btn-primary\" onclick=\"endCourse('"+current.id+"','"+email+"')\"><i class=\"fas fa-stop-circle big-icon\"></i><i class=\"fas fa-euro-sign big-icon margin-left\"></i></button>"
+                                    + "</div>"
                                     +"</div>"
                                +"</div>"
                            +"</div>"
@@ -451,6 +531,7 @@ function getAllServicesForUser(email) {
             }
         })
 }
+
 function getCarInfoForDriver(email) {
     $.ajax({
             url: 'http://localhost:8080/api/cars/'+email,
@@ -482,6 +563,7 @@ function getCarInfoForDriver(email) {
             }
         })
 }
+
 function getUserServices(email) {
     $.ajax({
             url: 'http://localhost:8080/api/services/'+email,
