@@ -149,11 +149,51 @@ function saveServices(userEmail, array) {
         },
         success: function (code, status) {
                 $.ajax({
-                       url: './../php-scripts/saveService.php',
+                       url: './php-scripts/saveService.php',
                        type: 'GET',
                        dataType: "json",
                        success: function (code, status) {
                             window.location.href = "./../index.php";
+                       },
+                        error: function (result, status, error) {
+                                   //todo afficher une popup d'erreur
+                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                         },
+                   })
+        },
+
+        error: function (result, status, error) {
+            //todo afficher une popup d'erreur
+            alert("error 1" +JSON.stringify(result))
+        },
+
+        complete: function (result, status) {
+        }
+    })
+}
+function saveNewServices(userEmail, array) {
+    const data = JSON.stringify({
+        userEmail:userEmail,
+        serviceIds:array
+    })
+    $.ajax({
+        url: 'http://localhost:8080/api/services/updateAccompanist',
+        data: data,
+        type: 'POST',
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
+            'Access-Control-Allow-Credentials':true
+        },
+        success: function (code, status) {
+                $.ajax({
+                       url: './php-scripts/saveService.php',
+                       type: 'GET',
+                       dataType: "json",
+                       success: function (code, status) {
+                            window.location.href = "./index.php";
                        },
                         error: function (result, status, error) {
                                    //todo afficher une popup d'erreur
