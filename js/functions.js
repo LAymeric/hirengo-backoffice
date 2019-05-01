@@ -236,7 +236,9 @@ function getAllServicesForAccompanist() {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
-                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
+                    if(current !== null){
+                        visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
+                    }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -266,7 +268,9 @@ function getAllServicesAvailable(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
-                    visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
+                    if(current !== null){
+                        visualResult += "<div> <input type='checkbox' id='"+current.id+"' value='"+current.id+"' name='"+current.name+"'> <label for='"+current.name+"'>"+current.name+"</label></div>"
+                    }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -358,6 +362,7 @@ function getAllAvailableCourses(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
+                    if(current !== null){
                        visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
@@ -375,6 +380,7 @@ function getAllAvailableCourses(email) {
                                +"</div>"
                            +"</div>"
                        +"</div>"
+                    }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -404,6 +410,7 @@ function getAllHistoryCourses(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
+                    if(current !== null){
                        visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
@@ -420,6 +427,7 @@ function getAllHistoryCourses(email) {
                                +"</div>"
                            +"</div>"
                        +"</div>"
+                   }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -449,6 +457,7 @@ function getCurrentCourses(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
+                    if(current !== null){
                        visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
@@ -467,6 +476,7 @@ function getCurrentCourses(email) {
                                +"</div>"
                            +"</div>"
                        +"</div>"
+                   }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -497,21 +507,23 @@ function getAllServicesForUser(email) {
                if(code.length > 0){
                     for(let i = 0; i < code.length; i++){
                        const current = code [i];
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
-                            +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
-                               +"<div class=\"card-body\">"
-                                   +"<img src=\"\" class=\"output\" id=\"output_"+current.id+"\"/>"
-                                   + "<div class=\"col text-align-left\">"
-                                   + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.name + "</h5><br>"
-                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + "</p><br>"
-                                   + "<p style=\"text-align: center;\">" + current.quantity + "</p><br>"
-                                    +"</div>"
+                        if(current !== null){
+                           visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                                +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                                   +"<div class=\"card-body\">"
+                                       +"<img src=\"\" class=\"output\" id=\"output_"+current.id+"\"/>"
+                                       + "<div class=\"col text-align-left\">"
+                                       + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.name + "</h5><br>"
+                                       + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + "</p><br>"
+                                       + "<p style=\"text-align: center;\">" + current.quantity + "</p><br>"
+                                        +"</div>"
+                                   +"</div>"
                                +"</div>"
                            +"</div>"
-                       +"</div>"
 
-                       if(current.picture){
-                           displayImageFromByteArray(current.picture, document.getElementById("output_"+current.id))
+                           if(current.picture){
+                               displayImageFromByteArray(current.picture, document.getElementById("output_"+current.id))
+                           }
                        }
                    }
                }else{
