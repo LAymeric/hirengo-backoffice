@@ -26,9 +26,6 @@ $path = ("/hirengo-backoffice/driver" == $address || "/hirengo-backoffice/accomp
           </li>
           <?php if (isConnected()){?>
               <li class="nav-item">
-                  <a class="nav-link<?php if($navbarItem === 'profile') echo ' active'?>" href="<?php echo $path;?>profile.php"><?php echo PROFILE; ?></a>
-              </li>
-              <li class="nav-item">
                   <a class="nav-link" href="<?php echo $path;?>php-scripts/logout.php"><?php echo LOGOUT; ?></a>
               </li>
           <?php } else{?>

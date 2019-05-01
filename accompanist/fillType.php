@@ -9,7 +9,7 @@
         <br/>
         <br/>
         <div class="form-group" style="text-align:center;">
-            <button type="submit" class="btn btn-secondary" onclick="validateServiceForm('<?php echo $_SESSION["email"] ?>')"><?php echo SAVE;?></button>
+            <button type="submit" class="btn btn-secondary" onclick="validateNewServiceForm('<?php echo $_SESSION["email"] ?>')"><?php echo SAVE;?></button>
         </div>
      </div>
 </div>
