@@ -433,6 +433,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
+                    if(current !== null){
                        visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
@@ -458,6 +459,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
                                +"</div>"
                            +"</div>"
                        +"</div>"
+                       }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -582,6 +584,7 @@ function getAllHistoryCoursesForAccompanist(email) {
                let visualResult =""
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
+                    if(current !== null){
                        visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
@@ -598,6 +601,7 @@ function getAllHistoryCoursesForAccompanist(email) {
                                +"</div>"
                            +"</div>"
                        +"</div>"
+                       }
                 }
                 document.getElementById('content').innerHTML = visualResult;
             },
@@ -676,6 +680,7 @@ function getCurrentCoursesForAccompanist(email) {
             let visualResult =""
             for(let i = 0; i < code.length; i++){
                 const current = code [i];
+                if(current !== null){
                 visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
                                +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                   +"<div class=\"card-body\">"
@@ -699,6 +704,7 @@ function getCurrentCoursesForAccompanist(email) {
                                   +"</div>"
                               +"</div>"
                           +"</div>"
+                          }
                           }
                 document.getElementById('content').innerHTML = visualResult;
             },
