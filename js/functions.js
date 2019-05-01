@@ -149,11 +149,51 @@ function saveServices(userEmail, array) {
         },
         success: function (code, status) {
                 $.ajax({
-                       url: './../php-scripts/saveService.php',
+                       url: './php-scripts/saveService.php',
                        type: 'GET',
                        dataType: "json",
                        success: function (code, status) {
                             window.location.href = "./../index.php";
+                       },
+                        error: function (result, status, error) {
+                                   //todo afficher une popup d'erreur
+                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                         },
+                   })
+        },
+
+        error: function (result, status, error) {
+            //todo afficher une popup d'erreur
+            alert("error 1" +JSON.stringify(result))
+        },
+
+        complete: function (result, status) {
+        }
+    })
+}
+function saveNewServices(userEmail, array) {
+    const data = JSON.stringify({
+        userEmail:userEmail,
+        serviceIds:array
+    })
+    $.ajax({
+        url: 'http://localhost:8080/api/services/updateAccompanist',
+        data: data,
+        type: 'POST',
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080',
+            'Access-Control-Allow-Credentials':true
+        },
+        success: function (code, status) {
+                $.ajax({
+                       url: './php-scripts/saveService.php',
+                       type: 'GET',
+                       dataType: "json",
+                       success: function (code, status) {
+                            window.location.href = "./index.php";
                        },
                         error: function (result, status, error) {
                                    //todo afficher une popup d'erreur
@@ -316,6 +356,37 @@ function chooseCourse(courseId, email){
             })
 }
 
+function chooseCourseForAccompanist(courseId, email){
+    const data = JSON.stringify({
+            commandId:courseId,
+            email:email
+        })
+    $.ajax({
+                url: 'http://localhost:8080/api/command/chooseForAccompanist',
+                data: data,
+                type: 'POST',
+                dataType: "json",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://localhost:8080',
+                    'Access-Control-Allow-Credentials':true
+                },
+                success: function (code, status) {
+                   let visualResult =""
+                    document.location.href="./inProgressCourse.php"
+                },
+
+                error: function (result, status, error) {
+                    //todo afficher une popup d'erreur
+                    alert("error " +JSON.stringify(result))
+                },
+
+                complete: function (result, status) {
+                }
+            })
+}
+
 function endCourse(courseId, email){
     const data = JSON.stringify({
             commandId:courseId,
@@ -335,6 +406,60 @@ function endCourse(courseId, email){
             success: function (code, status) {
                let visualResult =""
                 document.location.href="./courseHistory.php"
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
+function getAllAvailableCoursesForUserAccompanist(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/command/availableAccompanist/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                for(let i = 0; i < code.length; i++){
+                    const current = code [i];
+                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                            +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                               +"<div class=\"card-body\">"
+                                   + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
+                                   + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.userName + "</h5>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.start + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.end + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.startTime + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.duration + " minutes</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p>"
+                                   if(current.services){
+                                        visualResult += "<p class=\"card-text\" style=\"text-align: center\">"
+                                        for(let i =0; i < current.services.length; i++){
+                                            visualResult += current.services[i]
+                                            visualResult += (i < current.services.length - 1) ? ", " : ""
+                                        }
+                                        visualResult += "</p><br>"
+                                   }
+                        visualResult +=  "<div class=\"form-group\" style=\"text-align:center;\">"
+                                       + "<button type=\"submit\" class=\"btn btn-primary\" onclick=\"chooseCourseForAccompanist('"+current.id+"','"+email+"')\"><i class=\"fas fa-car-side  big-icon\"></i><i class=\"fas fa-arrow-right big-icon margin-left\"></i></button>"
+                                   + "</div>"
+                                    +"</div>"
+                               +"</div>"
+                           +"</div>"
+                       +"</div>"
+                }
+                document.getElementById('content').innerHTML = visualResult;
             },
 
             error: function (result, status, error) {
@@ -442,6 +567,51 @@ function getAllHistoryCourses(email) {
         })
 }
 
+function getAllHistoryCoursesForAccompanist(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/command/historyAccompanist/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+               let visualResult =""
+                for(let i = 0; i < code.length; i++){
+                    const current = code [i];
+                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                            +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                               +"<div class=\"card-body\">"
+                                   + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
+                                   + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.userName + "</h5>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.start + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.end + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.startTime + "</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.duration + " minutes</p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p>"
+                                   + "<p class=\"card-text\" style=\"text-align: center\">" + current.price + " € </p><br>"
+
+                                    +"</div>"
+                               +"</div>"
+                           +"</div>"
+                       +"</div>"
+                }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
 function getCurrentCourses(email) {
     $.ajax({
             url: 'http://localhost:8080/api/command/current/'+email,
@@ -478,6 +648,58 @@ function getCurrentCourses(email) {
                        +"</div>"
                    }
                 }
+                document.getElementById('content').innerHTML = visualResult;
+            },
+
+            error: function (result, status, error) {
+                //todo afficher une popup d'erreur
+                alert("error " +JSON.stringify(result))
+            },
+
+            complete: function (result, status) {
+            }
+        })
+}
+
+function getCurrentCoursesForAccompanist(email) {
+    $.ajax({
+            url: 'http://localhost:8080/api/command/currentForAccompanist/'+email,
+            type: 'GET',
+            dataType: "json",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080',
+                'Access-Control-Allow-Credentials':true
+            },
+            success: function (code, status) {
+            let visualResult =""
+            for(let i = 0; i < code.length; i++){
+                const current = code [i];
+                visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                               +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
+                                  +"<div class=\"card-body\">"
+                                      + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
+                                      + "<h5 class=\"card-title\" style=\"text-align: center;\">" + current.userName + "</h5>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.start + "</p>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.end + "</p>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.startTime + "</p>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.duration + " minutes</p>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.distance + " km </p>"
+                                      + "<p class=\"card-text\" style=\"text-align: center\">" + current.status + "</p>"
+                                      if(current.services){
+                                           visualResult += "<p class=\"card-text\" style=\"text-align: center\">"
+                                           for(let i =0; i < current.services.length; i++){
+                                               visualResult += current.services[i]
+                                               visualResult += (i < current.services.length - 1) ? ", " : ""
+                                           }
+                                           visualResult += "</p><br>"
+                                      }
+                           visualResult +=  "</div>"
+                                  +"</div>"
+                              +"</div>"
+                          +"</div>"
+                          }
                 document.getElementById('content').innerHTML = visualResult;
             },
 
