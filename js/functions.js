@@ -15,9 +15,7 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
         dataType: "json",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
+            'Content-Type': 'application/json'
         },
         success: function (code, status) {
                 $.ajax({
@@ -66,9 +64,7 @@ function saveCar(name, brand, description, base64, userMail) {
         dataType: "json",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
+            'Content-Type': 'application/json'
         },
         success: function (code, status) {
                 $.ajax({
@@ -102,9 +98,7 @@ function editCar(name, brand, description, base64, userMail) {
         dataType: "json",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
+            'Content-Type': 'application/json'
         },
         success: function (code, status) {
                 $.ajax({
@@ -143,9 +137,7 @@ function saveServices(userEmail, array) {
         dataType: "json",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
+            'Content-Type': 'application/json'
         },
         success: function (code, status) {
                 $.ajax({
@@ -183,9 +175,7 @@ function saveNewServices(userEmail, array) {
         dataType: "json",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
+            'Content-Type': 'application/json'
         },
         success: function (code, status) {
                 $.ajax({
@@ -225,8 +215,6 @@ function login(email, pwd) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:8080',
-            'Access-Control-Allow-Credentials':true
         },
         success: function (code, status) {
                console.log("code"+JSON.stringify(code))
@@ -268,9 +256,7 @@ function getAllServicesForAccompanist() {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -300,9 +286,7 @@ function getAllServicesAvailable(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -337,9 +321,7 @@ function chooseCourse(courseId, email){
                 dataType: "json",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:8080',
-                    'Access-Control-Allow-Credentials':true
+                    'Content-Type': 'application/json'
                 },
                 success: function (code, status) {
                    let visualResult =""
@@ -368,9 +350,7 @@ function chooseCourseForAccompanist(courseId, email){
                 dataType: "json",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:8080',
-                    'Access-Control-Allow-Credentials':true
+                    'Content-Type': 'application/json'
                 },
                 success: function (code, status) {
                    let visualResult =""
@@ -399,9 +379,7 @@ function endCourse(courseId, email){
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -425,9 +403,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -481,9 +457,7 @@ function getAllAvailableCourses(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -529,9 +503,7 @@ function getAllHistoryCourses(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -576,9 +548,7 @@ function getAllHistoryCoursesForAccompanist(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -623,9 +593,7 @@ function getCurrentCourses(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult =""
@@ -672,9 +640,7 @@ function getCurrentCoursesForAccompanist(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
             let visualResult =""
@@ -726,9 +692,7 @@ function getAllServicesForUser(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                let visualResult ="<div class=\"container\"><div class=\"row\">"
@@ -779,9 +743,7 @@ function getCarInfoForDriver(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                 displayImageFromByteArray(code.base64, document.getElementById("outputEdit"))
@@ -811,9 +773,7 @@ function getUserServices(email) {
             dataType: "json",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:8080',
-                'Access-Control-Allow-Credentials':true
+                'Content-Type': 'application/json'
             },
             success: function (code, status) {
                    console.log("code"+JSON.stringify(code))
