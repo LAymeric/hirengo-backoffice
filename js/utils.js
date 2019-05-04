@@ -81,7 +81,6 @@ function validateCarForm(userEmail) {
 
         reader.onload = function() {
             var base64 = btoa(reader.result);
-            alert(base64)
             saveCar(name, brand, description, base64, userEmail)
         };
 
