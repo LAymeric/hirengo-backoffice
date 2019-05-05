@@ -19,8 +19,3 @@ include "./../common/navbar.php";
         <button type="submit" class="btn btn-secondary" onclick="document.location.href='./addService.php'"><?php echo NEW_SERVICE;?></button>
     </div>
 </div>
-
-
-<?php
-include "./../common/footer.php";
-?>

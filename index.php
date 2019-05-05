@@ -21,6 +21,3 @@ if(isset($_SESSION["auth"]) && $_SESSION["auth"]){
 }
 ?>
 
-<?php
-include "common/footer.php";
-?>

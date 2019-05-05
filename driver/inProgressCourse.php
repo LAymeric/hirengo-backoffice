@@ -15,6 +15,3 @@ include "./../common/navbar.php";
     <h1><?php echo IN_PROGRESS_COURSE; ?></h1>
     <div id="content"></div>
 </div>
-<?php
-include "./../common/footer.php";
-?>

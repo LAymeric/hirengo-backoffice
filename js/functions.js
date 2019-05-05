@@ -395,7 +395,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
                     if(current !== null){
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                       visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
                                    + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -448,7 +448,7 @@ function getAllAvailableCourses(email) {
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
                     if(current !== null){
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                       visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
                                    + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -493,7 +493,7 @@ function getAllHistoryCourses(email) {
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
                     if(current !== null){
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                       visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
                                    + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -537,7 +537,7 @@ function getAllHistoryCoursesForAccompanist(email) {
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
                     if(current !== null){
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                       visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
                                    + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -581,7 +581,7 @@ function getCurrentCourses(email) {
                 for(let i = 0; i < code.length; i++){
                     const current = code [i];
                     if(current !== null){
-                       visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                       visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                             +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                +"<div class=\"card-body\">"
                                    + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -627,7 +627,7 @@ function getCurrentCoursesForAccompanist(email) {
             for(let i = 0; i < code.length; i++){
                 const current = code [i];
                 if(current !== null){
-                visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                                +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                   +"<div class=\"card-body\">"
                                       + "<div class=\"col text-align-left\" id=\""+current.id+"\">"
@@ -679,7 +679,7 @@ function getAllServicesForUser(email) {
                     for(let i = 0; i < code.length; i++){
                        const current = code [i];
                         if(current !== null){
-                           visualResult +=  "<div class=\"col-sm-4\" style=\"padding: 20px;\">"
+                           visualResult +=  "<div class=\"col-sm-4 float\" style=\"padding: 20px;\">"
                                 +"<div class=\"card\" style=\"width: 18rem; border-color: rgb(91,192,222)\">"
                                    +"<div class=\"card-body\">"
                                        +"<img src=\"\" class=\"output\" id=\"output_"+current.id+"\"/>"

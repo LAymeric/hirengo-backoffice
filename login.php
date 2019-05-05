@@ -54,8 +54,3 @@
 
     </div>
     <br/>
-
-<?php
-
-    include "./common/footer.php";
-?>
