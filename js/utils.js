@@ -76,13 +76,17 @@ function validateCarForm(userEmail) {
     }
 
     if (!error) {
-        var reader = new FileReader();
-        reader.readAsBinaryString(image);
+        if(image != null){
+            var reader = new FileReader();
+            reader.readAsBinaryString(image);
 
-        reader.onload = function() {
-            var base64 = btoa(reader.result);
-            saveCar(name, brand, description, base64, userEmail)
-        };
+            reader.onload = function() {
+                var base64 = btoa(reader.result);
+                saveCar(name, brand, description, base64, userEmail)
+            };
+        }else{
+            saveCar(name, brand, description, null, userEmail)
+        }
 
     }
 }

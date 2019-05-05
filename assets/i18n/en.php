@@ -92,4 +92,6 @@
   define('PRICE','Price');
   define('NEW_SERVICE','Add a service');
   define('PRICE_SERVICE_ERROR','Error with the service price');
+  define('ERROR','An error occured');
+  define('SUCCESS','Everthing went fine');
 ?>

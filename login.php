@@ -32,6 +32,16 @@
                 <div id="errorPwdLogin" class="error" style="display: none"><?php echo LOGIN_FAIL_PWD ?></div>
             </div>
                <br/>
+
+        <div class="form-group" style="text-align:center;">
+            <div class="popup">
+                <span class="popuptext" id="successPopup"><i class="far fa-check-circle"></i><?php echo SUCCESS;?></span>
+            </div>
+            <div class="popupError">
+                <span class="popuptext" id="errorPopup"><i class="far fa-times-circle"></i><?php echo ERROR;?></span>
+            </div>
+        </div>
+
             <div class="form-group" style="text-align:center;">
                 <button type="submit" class="btn btn-secondary" onclick="validateLoginForm()"><?php echo SIGN_IN;?></span></button>
             </div>

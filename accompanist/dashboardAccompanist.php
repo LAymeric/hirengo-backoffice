@@ -7,7 +7,6 @@
         </div>
         <div class="row">
             <div class="tile col" onclick="window.location.href='./accompanist/inProgressCourse.php'"><i class="fas fa-location-arrow big-icon"></i><?php echo IN_PROGRESS_COURSE; ?></div>
-            <div class="tile col" onclick="window.location.href='./accompanist/soldeAccount.php'"><i class="fas fa-euro-sign big-icon"></i><?php echo SOLDE_ACCOUNT; ?></div>
         </div>
      <div>
 </div>

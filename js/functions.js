@@ -33,15 +33,13 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
                             location.reload();
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                errorPopup()
                          },
                    })
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
-            alert("error " +JSON.stringify(result))
+            errorPopup()
         },
 
         complete: function (result, status) {
@@ -75,8 +73,7 @@ function saveCar(name, brand, description, base64, userMail) {
                             window.location.href = "./index.php";
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                errorPopup()
                          },
                    })
         },
@@ -109,15 +106,13 @@ function editCar(name, brand, description, base64, userMail) {
                             window.location.href = "./myCar.php";
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                errorPopup()
                          },
                    })
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
-            alert("error 1" +JSON.stringify(result))
+             errorPopup()
         },
 
         complete: function (result, status) {
@@ -148,21 +143,20 @@ function saveServices(userEmail, array) {
                             window.location.href = "./../index.php";
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                errorPopup()
                          },
                    })
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
-            alert("error 1" +JSON.stringify(result))
+             errorPopup()
         },
 
         complete: function (result, status) {
         }
     })
 }
+
 function saveNewServices(userEmail, array) {
     const data = JSON.stringify({
         userEmail:userEmail,
@@ -186,15 +180,13 @@ function saveNewServices(userEmail, array) {
                             window.location.href = "./index.php";
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error 2 " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                errorPopup()
                          },
                    })
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
-            alert("error 1" +JSON.stringify(result))
+                                errorPopup()
         },
 
         complete: function (result, status) {
@@ -233,15 +225,13 @@ function login(email, pwd) {
                             window.location.href = "./index.php";
                        },
                         error: function (result, status, error) {
-                                   //todo afficher une popup d'erreur
-                                alert("error " +JSON.stringify(result) + " - " + +JSON.stringify(error))
+                                 errorPopup()
                          },
                    })
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
-            alert("error " +JSON.stringify(result))
+            errorPopup()
         },
 
         complete: function (result, status) {
@@ -270,8 +260,7 @@ function getAllServicesForAccompanist() {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -300,8 +289,7 @@ function getAllServicesAvailable(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -329,8 +317,7 @@ function chooseCourse(courseId, email){
                 },
 
                 error: function (result, status, error) {
-                    //todo afficher une popup d'erreur
-                    alert("error " +JSON.stringify(result))
+                                errorPopup()
                 },
 
                 complete: function (result, status) {
@@ -358,8 +345,7 @@ function chooseCourseForAccompanist(courseId, email){
                 },
 
                 error: function (result, status, error) {
-                    //todo afficher une popup d'erreur
-                    alert("error " +JSON.stringify(result))
+                                errorPopup()
                 },
 
                 complete: function (result, status) {
@@ -387,8 +373,7 @@ function endCourse(courseId, email){
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -441,8 +426,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -487,8 +471,7 @@ function getAllAvailableCourses(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -532,8 +515,7 @@ function getAllHistoryCourses(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -577,8 +559,7 @@ function getAllHistoryCoursesForAccompanist(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -624,8 +605,7 @@ function getCurrentCourses(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -676,8 +656,7 @@ function getCurrentCoursesForAccompanist(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -727,8 +706,7 @@ function getAllServicesForUser(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -757,8 +735,7 @@ function getCarInfoForDriver(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -781,8 +758,7 @@ function getUserServices(email) {
             },
 
             error: function (result, status, error) {
-                //todo afficher une popup d'erreur
-                alert("error " +JSON.stringify(result))
+                                errorPopup()
             },
 
             complete: function (result, status) {
@@ -800,10 +776,35 @@ function getUserData() {
         },
 
         error: function (result, status, error) {
-            //todo afficher une popup d'erreur
+                                errorPopup()
         },
 
         complete: function (result, status) {
         }
     })
+}
+
+
+var isShowing = false;
+function successPopup() {
+    if(!isShowing){
+        isShowing = true;
+        var popup = document.getElementById("successPopup");
+        popup.className="popuptext show";
+        setTimeout(function() {
+            popup.className="popuptext invisible";
+            isShowing = false;
+        },5000);
+    }
+}
+function errorPopup() {
+    if(!isShowing) {
+        isShowing = true;
+        var popup = document.getElementById("errorPopup");
+        popup.className="popuptext show";
+        setTimeout(function () {
+            popup.className="popuptext invisible";
+            isShowing = false;
+        }, 5000);
+    }
 }
