@@ -2,7 +2,7 @@
 include "./../common/head.php";
 include "./../common/navbar.php";
 ?>
-<script> $(document).ready(getAllServicesAvailable('<?php echo $_SESSION["email"];?>')); </script>
+<script> $(document).ready(getAllServicesAvailableForAccompanist('<?php echo $_SESSION["email"];?>')); </script>
 <div class="form-group" style="text-align:center;">
     <div class="popup">
         <span class="popuptext" id="successPopup"><i class="far fa-check-circle"></i><?php echo SUCCESS;?></span>
