@@ -732,7 +732,7 @@ function getAllServicesForUser(email) {
                 'Content-Type': 'application/json'
             },
             success: function (code, status) {
-               let visualResult ="<div class=\"container\"><div class=\"row\">"
+               let visualResult ="<div class=\"container-main\"><div class=\"row\">"
                if(code.length > 0){
                     for(let i = 0; i < code.length; i++){
                        const current = code [i];
