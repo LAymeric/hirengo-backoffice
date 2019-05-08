@@ -44,6 +44,15 @@
     <!-- Functions js-->
     <script src="<?php echo $path;?>js/utils.js"></script>
     <script src="<?php echo $path;?>js/functions.js"></script>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+            document.location.reload()
+        }
+  </script>
   </head>
   <?php include $path."php-scripts/i18n.php";?>
   <body>

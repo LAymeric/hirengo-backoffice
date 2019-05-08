@@ -76,7 +76,7 @@
   define('NAME_CAR_ERROR','Incorrect car name');
   define('BRAND','Brand');
   define('BRAND_CAR_ERROR','Wrong brand name');
-  define('DESCRIPTION','Car's Description');
+  define('DESCRIPTION','Car\'s Description');
   define('DESCRIPTION_CAR_ERROR','Wrong car description');
   define('SAVE','Save');
   define('IMAGE_CAR','Picture of the car');
