@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-main">
     <script> $(document).ready(getAllServicesForAccompanist()); </script>
      <div>
         <?php echo FILL_SERVICE; ?>

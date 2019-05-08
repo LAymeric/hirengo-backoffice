@@ -11,7 +11,7 @@ include "./../common/navbar.php";
         <span class="popuptext" id="errorPopup"><i class="far fa-times-circle"></i><?php echo ERROR;?></span>
     </div>
 </div>
-<div class="container">
+<div class="container-main">
      <div>
         <h1><?php echo NEW_SERVICE; ?></h1>
      </div>
