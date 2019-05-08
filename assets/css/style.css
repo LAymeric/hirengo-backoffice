@@ -116,6 +116,12 @@ h4 {
 .container-main{
     text-align:center;
     margin-top:70px;
+    width: 100%;
+    max-width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .tile:hover{
    background-color:#4c4cff;
