@@ -9,7 +9,7 @@ function saveUser(firstname, lastname, email, birthday, phone, pwd, type) {
         type:type,
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/users/create',
+        url: 'http://localhost:8080/api/users/create',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -56,7 +56,7 @@ function saveCar(name, brand, description, base64, userMail) {
         base64:base64
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/cars/create',
+        url: 'http://localhost:8080/api/cars/create',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -89,7 +89,7 @@ function editCar(name, brand, description, base64, userMail) {
         base64:base64
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/cars/edit',
+        url: 'http://localhost:8080/api/cars/edit',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -126,7 +126,7 @@ function saveServices(userEmail, array) {
         serviceIds:array
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/services/update',
+        url: 'http://localhost:8080/api/services/update',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -163,7 +163,7 @@ function saveNewServices(userEmail, array) {
         serviceIds:array
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/services/updateAccompanist',
+        url: 'http://localhost:8080/api/services/updateAccompanist',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -200,7 +200,7 @@ function login(email, pwd) {
         email:email
     })
     $.ajax({
-        url: 'http://192.168.1.67:8080/api/users/login',
+        url: 'http://localhost:8080/api/users/login',
         data: data,
         type: 'POST',
         dataType: "json",
@@ -241,7 +241,7 @@ function login(email, pwd) {
 
 function getAllServicesForAccompanist() {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/accompanist',
+            url: 'http://localhost:8080/api/services/accompanist',
             type: 'GET',
             dataType: "json",
             headers: {
@@ -270,7 +270,7 @@ function getAllServicesForAccompanist() {
 
 function getAllServicesAvailable(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/available/'+email,
+            url: 'http://localhost:8080/api/services/available/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -299,7 +299,7 @@ function getAllServicesAvailable(email) {
 
 function getAllServicesAvailableForAccompanist(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/accompanist/available/'+email,
+            url: 'http://localhost:8080/api/services/accompanist/available/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -328,7 +328,7 @@ function getAllServicesAvailableForAccompanist(email) {
 
 function getAllMyServicesForAccompanist(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/accompanist/'+email,
+            url: 'http://localhost:8080/api/services/accompanist/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -361,7 +361,7 @@ function chooseCourse(courseId, email){
             email:email
         })
     $.ajax({
-                url: 'http://192.168.1.67:8080/api/command/choose',
+                url: 'http://localhost:8080/api/command/choose',
                 data: data,
                 type: 'POST',
                 dataType: "json",
@@ -389,7 +389,7 @@ function chooseCourseForAccompanist(courseId, email){
             email:email
         })
     $.ajax({
-                url: 'http://192.168.1.67:8080/api/command/chooseForAccompanist',
+                url: 'http://localhost:8080/api/command/chooseForAccompanist',
                 data: data,
                 type: 'POST',
                 dataType: "json",
@@ -417,7 +417,7 @@ function endCourse(courseId, email){
             email:email
         })
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/end',
+            url: 'http://localhost:8080/api/command/end',
             data: data,
             type: 'POST',
             dataType: "json",
@@ -441,7 +441,7 @@ function endCourse(courseId, email){
 
 function getAllAvailableCoursesForUserAccompanist(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/availableAccompanist/'+email,
+            url: 'http://localhost:8080/api/command/availableAccompanist/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -494,7 +494,7 @@ function getAllAvailableCoursesForUserAccompanist(email) {
 
 function getAllAvailableCourses(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/available',
+            url: 'http://localhost:8080/api/command/available',
             type: 'GET',
             dataType: "json",
             headers: {
@@ -539,7 +539,7 @@ function getAllAvailableCourses(email) {
 
 function getAllHistoryCourses(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/history/'+email,
+            url: 'http://localhost:8080/api/command/history/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -583,7 +583,7 @@ function getAllHistoryCourses(email) {
 
 function getAllHistoryCoursesForAccompanist(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/historyAccompanist/'+email,
+            url: 'http://localhost:8080/api/command/historyAccompanist/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -627,7 +627,7 @@ function getAllHistoryCoursesForAccompanist(email) {
 
 function getCurrentCourses(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/current/'+email,
+            url: 'http://localhost:8080/api/command/current/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -673,7 +673,7 @@ function getCurrentCourses(email) {
 
 function getCurrentCoursesForAccompanist(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/command/currentForAccompanist/'+email,
+            url: 'http://localhost:8080/api/command/currentForAccompanist/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -724,7 +724,7 @@ function getCurrentCoursesForAccompanist(email) {
 
 function getAllServicesForUser(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/'+email,
+            url: 'http://localhost:8080/api/services/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -774,7 +774,7 @@ function getAllServicesForUser(email) {
 
 function getCarInfoForDriver(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/cars/'+email,
+            url: 'http://localhost:8080/api/cars/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
@@ -803,7 +803,7 @@ function getCarInfoForDriver(email) {
 
 function getUserServices(email) {
     $.ajax({
-            url: 'http://192.168.1.67:8080/api/services/'+email,
+            url: 'http://localhost:8080/api/services/'+email,
             type: 'GET',
             dataType: "json",
             headers: {
